@@ -50,7 +50,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+
         return false
+    }
+
+   @IBAction func textFieldDidEndEditing(_ textField: UITextField) {
+    let loanAmount = Double(loanAmountInputField.text!) ?? 0.0
+    loanAmountSlider.value = Float(Double(loanAmount))
+        calculateMonthlyPayment()
     }
 
 
